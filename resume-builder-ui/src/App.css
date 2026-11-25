@@ -1,0 +1,624 @@
+
+/* =====================================
+   GLOBAL STYLES
+===================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f6fb;
+  color: #333;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* =====================================
+   APPLICATION HEADER
+===================================== */
+
+.app-container {
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+
+.app-header {
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  color: white;
+  text-align: center;
+  padding: 35px 20px;
+}
+
+.app-header h1 {
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.app-header p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* =====================================
+   MAIN CONTENT
+===================================== */
+
+.main-content {
+  width: 90%;
+  max-width: 1100px;
+  margin: 30px auto;
+}
+
+.editor {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+}
+
+/* =====================================
+   HEADINGS
+===================================== */
+
+.editor h2 {
+  color: #1e3a8a;
+  font-size: 23px;
+  margin-bottom: 20px;
+}
+
+.editor h3 {
+  color: #2563eb;
+  font-size: 18px;
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+/* =====================================
+   FORM FIELDS
+===================================== */
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-top: 18px;
+  margin-bottom: 8px;
+  color: #374151;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  font-size: 14px;
+  outline: none;
+  background: white;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+textarea {
+  resize: vertical;
+  line-height: 1.6;
+}
+
+/* =====================================
+   JOB DETAILS
+===================================== */
+
+.job-details-section {
+  margin-bottom: 30px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.file-name {
+  margin-top: 12px;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+/* =====================================
+   BUTTONS
+===================================== */
+
+button {
+  border: none;
+  padding: 12px 20px;
+  border-radius: 7px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.2s;
+  margin-top: 15px;
+  background: #2563eb;
+  color: white;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+button:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* =====================================
+   ANALYZE BUTTON
+===================================== */
+
+.analyze-button {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  background: #16a34a;
+}
+
+.analyze-button:hover {
+  background: #15803d;
+}
+
+/* =====================================
+   ANALYSIS RESULTS
+===================================== */
+
+.analysis-results {
+  margin-top: 25px;
+  padding: 25px;
+  background: #f8fafc;
+  border: 1px solid #dbeafe;
+  border-radius: 10px;
+}
+
+.analysis-results h2 {
+  color: #1e40af;
+}
+
+.analysis-results h3 {
+  color: #1d4ed8;
+  margin-top: 22px;
+}
+
+.analysis-results p {
+  line-height: 1.7;
+  margin-top: 10px;
+  overflow-wrap: anywhere;
+}
+
+.match-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 9px;
+  background: #eff6ff;
+  color: #1e40af;
+}
+
+.match-card strong {
+  font-size: 28px;
+}
+
+.result-list {
+  padding-left: 25px;
+  margin-top: 12px;
+}
+
+.result-list li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.recommendation {
+  white-space: pre-line;
+}
+
+/* =====================================
+   YES / NO EDIT DIALOGUE
+===================================== */
+
+.edit-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.edit-dialog {
+  background: white;
+  color: #222;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 470px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.edit-dialog h2 {
+  color: #1e3a8a;
+  margin-bottom: 15px;
+}
+
+.edit-dialog p {
+  line-height: 1.7;
+  color: #555;
+}
+
+.dialog-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.dialog-buttons button {
+  margin: 0;
+  padding: 12px 18px;
+}
+
+.yes-button {
+  background: #16a34a;
+}
+
+.yes-button:hover {
+  background: #15803d;
+}
+
+.no-button {
+  background: #64748b;
+}
+
+.no-button:hover {
+  background: #475569;
+}
+
+/* =====================================
+   RESUME EDITOR
+===================================== */
+
+.resume-edit-section {
+  margin-top: 30px;
+  padding: 25px;
+  border: 1px solid #dbeafe;
+  border-radius: 10px;
+  background: white;
+}
+
+.editor-description {
+  color: #64748b;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+/* =====================================
+   SKILLS
+===================================== */
+
+.skill-input {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.skill-input input {
+  flex: 1;
+}
+
+.skill-input button {
+  margin-top: 0;
+  white-space: nowrap;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 7px;
+}
+
+.skill-item span {
+  color: #1e40af;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.remove-button {
+  background: #dc2626;
+  padding: 7px 12px;
+  font-size: 12px;
+}
+
+.remove-button:hover {
+  background: #b91c1c;
+}
+
+/* =====================================
+   PROJECTS
+===================================== */
+
+.project-item {
+  margin-bottom: 15px;
+  padding: 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+.project-item textarea {
+  margin-bottom: 5px;
+}
+
+.add-project-button {
+  background: #2563eb;
+}
+
+.add-project-button:hover {
+  background: #1d4ed8;
+}
+
+/* =====================================
+   EDITOR ACTION BUTTONS
+===================================== */
+
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.action-buttons button {
+  flex: 1;
+  min-width: 150px;
+  margin-top: 0;
+}
+
+.preview-button {
+  background: #64748b;
+}
+
+.preview-button:hover {
+  background: #475569;
+}
+
+.save-button {
+  background: #16a34a;
+}
+
+.save-button:hover {
+  background: #15803d;
+}
+
+/* =====================================
+   RESUME PREVIEW
+===================================== */
+
+.resume-preview {
+  margin-top: 25px;
+  padding: 30px;
+  border: 1px solid #cbd5e1;
+  background: white;
+  border-radius: 8px;
+}
+
+.resume-preview h2 {
+  color: #111827;
+  text-align: center;
+  font-size: 25px;
+}
+
+.resume-preview > p {
+  text-align: center;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.resume-preview h3 {
+  color: #1e3a8a;
+  border-bottom: 1px solid #cbd5e1;
+  padding-bottom: 7px;
+}
+
+.resume-preview p {
+  line-height: 1.7;
+  margin-top: 8px;
+}
+
+.resume-preview hr {
+  margin: 20px 0;
+  border: none;
+  border-top: 1px solid #cbd5e1;
+}
+
+.preview-project {
+  white-space: pre-line;
+  margin-bottom: 12px;
+}
+
+/* =====================================
+   DOWNLOAD SECTION
+===================================== */
+
+.download-section {
+  padding: 25px;
+  margin-top: 25px;
+  text-align: center;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+}
+
+.download-section h2 {
+  color: #15803d;
+  margin-bottom: 12px;
+}
+
+.download-section p {
+  color: #475569;
+  line-height: 1.7;
+}
+
+.download-button {
+  background: #16a34a;
+}
+
+.download-button:hover {
+  background: #15803d;
+}
+
+.edit-again-button {
+  background: #64748b;
+  margin-left: 10px;
+}
+
+.edit-again-button:hover {
+  background: #475569;
+}
+
+/* =====================================
+   STATUS MESSAGE
+===================================== */
+
+.message {
+  margin-top: 20px;
+  padding: 13px 15px;
+  background: #eff6ff;
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+  border-radius: 7px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+/* =====================================
+   RESPONSIVE DESIGN
+===================================== */
+
+@media (max-width: 768px) {
+
+  .app-header {
+    padding: 25px 15px;
+  }
+
+  .app-header h1 {
+    font-size: 23px;
+  }
+
+  .main-content {
+    width: 94%;
+    margin: 20px auto;
+  }
+
+  .editor {
+    padding: 18px;
+  }
+
+  .editor h2 {
+    font-size: 20px;
+  }
+
+  .resume-edit-section {
+    padding: 15px;
+  }
+
+  .skill-input {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .skill-input button {
+    width: 100%;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .action-buttons button {
+    width: 100%;
+  }
+
+  .edit-dialog {
+    padding: 22px;
+  }
+
+  .download-section button {
+    width: 100%;
+    margin: 8px 0;
+  }
+
+  .match-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .app-header h1 {
+    font-size: 20px;
+  }
+
+  .app-header p {
+    font-size: 13px;
+  }
+
+  .editor {
+    padding: 14px;
+  }
+
+  .skill-item {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .dialog-buttons {
+    flex-direction: column;
+  }
+
+  .dialog-buttons button {
+    width: 100%;
+  }
+
+  .resume-preview {
+    padding: 15px;
+  }
+}
